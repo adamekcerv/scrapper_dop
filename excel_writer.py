@@ -100,33 +100,23 @@ def _style_data_row(ws, row_num: int, num_cols: int, is_ostrava: bool = False):
 
 def _add_checkbox_column(ws, data_start_row: int, max_rows: int = 5000):
     """
-    Nastaví sloupec A jako dropdown checkbox (☐/☑) a přidá podmíněné
-    formátování: když A = ☑, celý řádek se obarví zeleně.
+    Nastaví sloupec A pro rychlé označení 'x' (nebo jakýkoliv znak).
+    Funguje bleskově pro 1 řádek (napsat x + Enter) i pro hromadný výběr
+    více řádků (označit myší -> napsat x -> Ctrl+Enter).
+    Jakýkoliv zápis do sloupce A obarví celý řádek zeleně.
     """
     last_row = data_start_row + max_rows
 
-    # ── Dropdown validace ──────────────────────────────────────────────────────
-    dv = DataValidation(
-        type="list",
-        formula1=f'"{CHECKBOX_CHECKED},{CHECKBOX_UNCHECKED}"',
-        allow_blank=False,
-        showDropDown=False,        # False = šipka je viditelná
-        showErrorMessage=False,
-        showInputMessage=False,
-    )
-    dv.sqref = f"A{data_start_row}:A{last_row}"
-    ws.add_data_validation(dv)
-
-    # ── Podmíněné formátování: zelená když ☑ ──────────────────────────────────
+    # Podmíněné formátování: když sloupec A není prázdný a není ☐ -> celý řádek zelený
     done_fill = PatternFill("solid", fgColor=COLOR_DONE)
     done_font = Font(name="Calibri", size=9, color=COLOR_DONE_FONT, bold=False)
 
     col_last = get_column_letter(NUM_PREHLED_COLS)
     cf_range = f"A{data_start_row}:{col_last}{last_row}"
 
-    # Formule: $A2="☑" → celý řádek zelený
+    # Formule: $A2<>"" AND $A2<>"☐" → celý řádek zelený
     rule = FormulaRule(
-        formula=[f'$A{data_start_row}="{CHECKBOX_CHECKED}"'],
+        formula=[f'AND($A{data_start_row}<>"", $A{data_start_row}<>"☐")'],
         fill=done_fill,
         font=done_font,
     )
