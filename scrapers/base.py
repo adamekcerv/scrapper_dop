@@ -27,9 +27,25 @@ HEADERS = {
 }
 
 OSTRAVA_KEYWORDS = [
-    "ostrava", "ostravsk", "moravskoslezsk", "poruba", "vítkovice",
-    "zábřeh", "hrabová", "svinov", "opava", "karviná", "havířov",
-    "frýdek", "třinec", "bohumín", "orlová"
+    "ostrava", "ostravsk", "poruba", "vítkovice", "vitkovice", "zábřeh", "zabreh",
+    "hrabová", "hrabova", "hrabůvka", "hrabuvka", "svinov", "mariánské hory", "marianske hory",
+    "slezská ostrava", "slezska ostrava", "přívoz", "privoz", "radvanice", "bartovice",
+    "michálkovice", "michalkovice", "stará bělá", "stara bela", "nová bělá", "nova bela",
+    "kunčice", "kuncice", "kunčičky", "kuncicky", "polanka", "pustkovec", "třebovice", "trebovice",
+    "hošťálkovice", "hostalkovice", "lhotka", "petřkovice", "petrkovice", "proskovice",
+    "krásné pole", "krasne pole", "martinová", "martinova", "martinov", "plesná", "plesna"
+]
+
+OTHER_CITIES_KEYWORDS = [
+    "karviná", "karvina", "havířov", "havirov", "frýdek", "frydek", "místek", "mistek",
+    "opava", "třinec", "trinec", "bohumín", "bohumin", "orlová", "orlova", "nový jičín", "novy jicin",
+    "krnov", "bruntál", "bruntal", "kopřivnice", "koprivnice", "český těšín", "cesky tesin",
+    "hlučín", "hlucin", "frenštát", "frenstat", "studénka", "studenka", "příbor", "pribor",
+    "bílovec", "bilovec", "rychvald", "petrovice", "václavovice", "vaclavovice", "šenov", "senov",
+    "vratimov", "dětmarovice", "detmarovice", "albrechtice", "stonava", "těrlicko", "terlicko",
+    "horní suchá", "horni sucha", "palkovice", "čeladná", "celadna", "nošovice", "nosovice",
+    "jablunkov", "janovice", "návsí", "navsi", "dobrá", "dobra", "baška", "baska", "paskov",
+    "odry", "fulnek"
 ]
 
 
@@ -48,11 +64,22 @@ def save_seen_urls(seen: set) -> None:
 
 
 def detect_city(text: str) -> str:
-    """Detekuje zda článek je o Ostravě nebo jiném městě."""
+    """Detekuje zda článek je o Ostravě nebo jiném městě na základě textu/kategorie."""
     text_lower = text.lower()
-    for kw in OSTRAVA_KEYWORDS:
-        if kw in text_lower:
-            return "Ostrava"
+    
+    # 1. Zkontrolovat přítomnost Ostravy / ostravských obvodů
+    has_ostrava = any(kw in text_lower for kw in OSTRAVA_KEYWORDS)
+    # 2. Zkontrolovat přítomnost jiných konkrétních měst v regionu
+    has_other_city = any(kw in text_lower for kw in OTHER_CITIES_KEYWORDS)
+    
+    if has_ostrava and not has_other_city:
+        return "Ostrava"
+    elif has_other_city and not has_ostrava:
+        return "Jiné"
+    elif has_ostrava and has_other_city:
+        # Pokud text obsahuje obojí, zkontrolujeme zda Ostrava je v titulku/kategorii
+        return "Ostrava"
+    
     return "Jiné"
 
 
@@ -188,7 +215,7 @@ class BaseScraper:
         if cats:
             category = ", ".join(c.get_text(strip=True) for c in cats[:3])
 
-        city_text = f"{title} {perex}"
+        city_text = f"{title} {category} {perex}"
         city = detect_city(city_text)
 
         article = {
