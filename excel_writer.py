@@ -213,6 +213,18 @@ def write_articles_to_excel(new_articles: list[dict], output_path: str = None) -
     # ── Checkbox dropdown + podmíněné formátování ────────────────────────────
     _add_checkbox_column(ws_prehled, data_start_row=2, max_rows=5000)
 
+    # ── Oficiální Excel Tabulka pro Power Automate ───────────────────────────
+    from openpyxl.worksheet.table import Table
+    last_r = max(ws_prehled.max_row, 2)
+    last_col_let = get_column_letter(NUM_PREHLED_COLS)
+    tab_ref = f"A1:{last_col_let}{last_r}"
+
+    if "PrehledTabulka" in ws_prehled.tables:
+        ws_prehled.tables["PrehledTabulka"].ref = tab_ref
+    else:
+        tab = Table(displayName="PrehledTabulka", ref=tab_ref)
+        ws_prehled.add_table(tab)
+
     # PŘEHLED vždy jako první list
     if "PŘEHLED" in wb.sheetnames:
         p_idx = wb.sheetnames.index("PŘEHLED")
