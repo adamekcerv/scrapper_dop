@@ -1,12 +1,132 @@
 [
   {
     "Web": "polar.cz",
-    "Titulek": "Specialisté v sociální oblasti",
-    "URL": "https://polar.cz/nabidka-prace/ostrava/detail/33531300762/specialiste-v-socialni-oblasti",
+    "Titulek": "Tučňáci se stanou novým lákadlem ZOO. Návštěvníci je budou moci sledovat i pod vodou",
+    "URL": "https://polar.cz/zpravy/ostrava/slezska-ostrava/11000056170/tucnaci-se-stanou-novym-lakadlem-zoo-navstevnici-je-budou-moci-sledovat-i-pod-vodou",
+    "Datum": "11.08.2026 13:27",
+    "Mesto": "Ostrava",
+    "ScrapedAt": "11.08.2026 11:56",
+    "Autor": "Tomáš Kořistka",
+    "Kategorie": "Ostrava-Slezská Ostrava"
+  },
+  {
+    "Web": "polar.cz",
+    "Titulek": "Rekonstrukce mateřské školky v Ostravě-Vítkovicích je dokončena",
+    "URL": "https://polar.cz/zpravy/ostrava/ostrava-vitkovice/11000056214/rekonstrukce-materske-skolky-v-ostravevitkovicich-je-dokoncena",
+    "Datum": "11.08.2026 13:21",
+    "Mesto": "Ostrava",
+    "ScrapedAt": "11.08.2026 11:56",
+    "Autor": "Tomáš Trávník",
+    "Kategorie": "Ostrava-Vítkovice"
+  },
+  {
+    "Web": "polar.cz",
+    "Titulek": "O letních prázdninách nastala na školách Ostravy-Jihu stavební sezóna",
+    "URL": "https://polar.cz/zpravy/ostrava/ostrava-jih/11000056242/o-letnich-prazdninach-nastala-na-skolach-ostravyjihu-stavebni-sezona",
+    "Datum": "11.08.2026 12:40",
+    "Mesto": "Ostrava",
+    "ScrapedAt": "11.08.2026 11:56",
+    "Autor": "Andrea Holeszová",
+    "Kategorie": "Ostrava-Jih"
+  },
+  {
+    "Web": "polar.cz",
+    "Titulek": "Alternativní hudba a underground na výsluní. Ostravu-Jih rozezněl nový festival Periferie",
+    "URL": "https://polar.cz/zpravy/ostrava/ostrava-jih/11000056243/alternativni-hudba-a-underground-na-vysluni-ostravujih-rozeznel-novy-festival-periferie",
+    "Datum": "11.08.2026 12:24",
+    "Mesto": "Ostrava",
+    "ScrapedAt": "11.08.2026 11:56",
+    "Autor": "Andrea Holeszová",
+    "Kategorie": "Ostrava-Jih"
+  },
+  {
+    "Web": "polar.cz",
+    "Titulek": "Opravy škol v Ostravě-Jihu o letošních prázdninách přesáhnou 110 mil. korun",
+    "URL": "https://polar.cz/zpravy/ostrava/ostrava-jih/11000056241/opravy-skol-v-ostravejihu-o-letosnich-prazdninach-presahnou-110-mil-korun",
+    "Datum": "11.08.2026 11:15",
+    "Mesto": "Ostrava",
+    "ScrapedAt": "11.08.2026 11:56",
+    "Autor": "Andrea Holeszová",
+    "Kategorie": "Ostrava-Jih"
+  },
+  {
+    "Web": "polar.cz",
+    "Titulek": "Prázdninové pozorování slunce v Planetáriu",
+    "URL": "https://polar.cz/kam-vyrazit/ostrava/ostrava-poruba/11000017222/prazdninove-pozorovani-slunce-v-planetariu",
     "Datum": "",
     "Mesto": "Jiné",
-    "ScrapedAt": "11.08.2026 13:52",
+    "ScrapedAt": "11.08.2026 11:56",
     "Autor": "",
     "Kategorie": ""
+  },
+  {
+    "Web": "polar.cz",
+    "Titulek": "Uklízeči a pomocníci v hotelích, administrativních, průmyslových a jiných objektech",
+    "URL": "https://polar.cz/nabidka-prace/ostrava/detail/33547340779/uklizeci-a-pomocnici-v-hotelich-administrativnich-prumyslovych-a-jinych-objektech",
+    "Datum": "",
+    "Mesto": "Jiné",
+    "ScrapedAt": "11.08.2026 11:56",
+    "Autor": "",
+    "Kategorie": ""
+  },
+  {
+    "Web": "zdopravy.cz",
+    "Titulek": "Lufthansa ukázala montáž Starlinku. První stroj s rychlým internetem vzlétne příští týden",
+    "URL": "https://zdopravy.cz/lufthansa-ukazala-montaz-starlinku-prvni-stroj-s-rychlym-internetem-vzletne-pristi-tyden-291913/",
+    "Datum": "Tue, 11 Aug 2026 11:30:57 +0000",
+    "Mesto": "Jiné",
+    "ScrapedAt": "11.08.2026 11:56",
+    "Autor": "Vojtěch Očadlý",
+    "Kategorie": "Letecké společnosti, Letectví, elon musk"
+  },
+  {
+    "Web": "denik.cz",
+    "Titulek": "Počasí přeje zatmění Slunce i Perseidám. Meteorologové vydali novou předpověď",
+    "URL": "https://www.denik.cz/pocasi/cesko-zatmeni-slunce-perseidy-pocasi-pozorovani-podminky-teploty/?utm_source=rss&utm_medium=feed-vse&utm_campaign=moravskoslezsky.denik.cz&utm_content=pocasi",
+    "Datum": "Tue, 11 Aug 2026 13:43:18 +0200",
+    "Mesto": "Jiné",
+    "ScrapedAt": "11.08.2026 11:56",
+    "Autor": "",
+    "Kategorie": "Počasí"
+  },
+  {
+    "Web": "denik.cz",
+    "Titulek": "Dvě ženy nestihly nástup do letadla, pronikly na letištní plochu a naháněly ho",
+    "URL": "https://www.denik.cz/evropa/rusko-zeny-se-snazily-zastavit-letadlo/?utm_source=rss&utm_medium=feed-vse&utm_campaign=moravskoslezsky.denik.cz&utm_content=evropa",
+    "Datum": "Tue, 11 Aug 2026 10:04:03 +0200",
+    "Mesto": "Jiné",
+    "ScrapedAt": "11.08.2026 11:56",
+    "Autor": "",
+    "Kategorie": "Evropa"
+  },
+  {
+    "Web": "msstavby.cz",
+    "Titulek": "Novostavba bytového domu Příbor",
+    "URL": "https://www.msstavby.cz/novostavba-bytoveho-domu-pribor-11-08-2026/",
+    "Datum": "Tue, 11 Aug 2026 08:30:00 +0000",
+    "Mesto": "Jiné",
+    "ScrapedAt": "11.08.2026 11:56",
+    "Autor": "Martin [msstavby.cz]",
+    "Kategorie": "ostatní, příbor"
+  },
+  {
+    "Web": "drbna.cz",
+    "Titulek": "Frýdek-Místek odstranil graffiti u Holubic. Zeď nově chrání speciální nátěr",
+    "URL": "https://ostravska.drbna.cz/zpravy/spolecnost/6207-frydek-mistek-odstranil-graffiti-u-holubic-zed-nove-chrani-specialni-nater.html",
+    "Datum": "2026-08-11 13:42:00",
+    "Mesto": "Jiné",
+    "ScrapedAt": "11.08.2026 11:56",
+    "Autor": "",
+    "Kategorie": ""
+  },
+  {
+    "Web": "idnes.cz",
+    "Titulek": "Z hořící kuchyně vynesli těžce popálenou seniorku, oživovali ji devět minut",
+    "URL": "https://www.idnes.cz/ostrava/zpravy/pozar-vaclavovice-ozivovani-rodinny-dum-popaleniny.A260811_123205_ostrava-zpravy_jog#utm_source=rss&utm_medium=feed&utm_campaign=ostrava&utm_content=main",
+    "Datum": "11.08.2026 11:37",
+    "Mesto": "Ostrava",
+    "ScrapedAt": "11.08.2026 11:56",
+    "Autor": "",
+    "Kategorie": "Ostrava - Ostrava - zprávy"
   }
 ]
