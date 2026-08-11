@@ -101,8 +101,39 @@ def run(output_path: str = None, reset: bool = False):
             print(f"  [EXCEL] ✓ Úspěšně zapsáno {written} článků.")
         except Exception as e:
             print(f"  [EXCEL] ✗ Chyba při zápisu: {e}")
+
+        # Uložit nove_zpravy.json pro Power Automate
+        try:
+            import json
+            json_file = os.path.join(os.path.dirname(__file__), "nove_zpravy.json")
+            formatted_json = [
+                {
+                    "Web": a.get("source_name", ""),
+                    "Titulek": a.get("title", ""),
+                    "URL": a.get("url", ""),
+                    "Datum": a.get("date", ""),
+                    "Mesto": a.get("city", "Jiné"),
+                    "ScrapedAt": a.get("scraped_at", ""),
+                    "Autor": a.get("author", ""),
+                    "Kategorie": a.get("category", "")
+                }
+                for a in all_new_articles
+            ]
+            with open(json_file, "w", encoding="utf-8") as f:
+                json.dump(formatted_json, f, ensure_ascii=False, indent=2)
+            print(f"  [JSON] Uloženo {len(formatted_json)} nových článků do nove_zpravy.json.")
+        except Exception as e:
+            print(f"  [JSON] Chyba při zápisu JSON: {e}")
     else:
         print("  [INFO] Žádné nové články k zapsání.")
+        # Vytvořit prázdný JSON
+        try:
+            import json
+            json_file = os.path.join(os.path.dirname(__file__), "nove_zpravy.json")
+            with open(json_file, "w", encoding="utf-8") as f:
+                json.dump([], f, ensure_ascii=False, indent=2)
+        except Exception:
+            pass
 
     # Uložit seen_urls
     save_seen_urls(seen_urls)
