@@ -1,0 +1,9 @@
+Potrebuju vytvořit scrapper ze seznamu stranek zde:
+"C:\scrapper\Scrapper_stranky.xlsx"
+
+Potrebuju aby fungoval co nejlepe a taky automaticky. takze nevim jestli vyuzit třeba github action nebo neceho jiného co je lepsi? pracujeme s Windows a ukladame věci na SharePoint.
+
+Vysledny excel by mel fungovat následujícím zpusobem:
+1) každý novy clanek z webu se ulozi do prislusnehlo listu s nazvem webu - bude mit nastaveny atributy specialne pro dany web které jdou ulozit, vcetne URL, data, apod..
+2) pak tam bude takovy souhrnny list - hlavni, kde budou zakladni informace o tom novem clanku - odkaz na nej, o jaky web se jedna, datum, jestli se jedna o Ostravu nebo jiné město, a taky nejake zaškrtávací pole, ze vlastne kolegyne to bude zpracovávat a když to zpracuje tak to zaskrtne a tim se to oznaci jako zpracovano. 
+3) implementovat logigu deduplikace apod. 

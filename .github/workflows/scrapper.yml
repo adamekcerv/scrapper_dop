@@ -1,0 +1,45 @@
+name: Web Scrapper – denní spuštění
+
+on:
+  schedule:
+    # Každý den v 6:00 UTC = 8:00 Prague (letní čas) / 7:00 Prague (zimní čas)
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+    # Možnost spustit ručně z GitHub webu (tlačítko "Run workflow")
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # Potřeba pro commit výsledků zpět do repa
+
+    steps:
+      # 1. Stáhni kód z repa (včetně seen_urls.json a vysledky.xlsx)
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      # 2. Nastavit Python
+      - name: Nastavit Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      # 3. Nainstalovat závislosti
+      - name: Instalovat závislosti
+        run: pip install -r requirements.txt
+
+      # 4. Spustit scrapper (ukládá do lokální cesty v repu)
+      - name: Spustit scrapper
+        run: python app.py --output vysledky.xlsx
+
+      # 5. Commitnout výsledky zpět do GitHub repa
+      - name: Uložit výsledky do repa
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add vysledky.xlsx seen_urls.json
+          git diff --cached --quiet || git commit -m "Scrapper: $(date '+%d.%m.%Y %H:%M') – aktualizace výsledků"
+          git push

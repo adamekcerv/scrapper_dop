@@ -1,0 +1,11 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Logy (lokální, nepatří do repa)
+scrapper.log
+sync.log
+
+# Lokální konfigurace (neměnit na GitHubu)
+# config.py se commituje, ale cesta v ní je lokální – GitHub ji ignoruje díky fallback logice
