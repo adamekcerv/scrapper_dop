@@ -1,10 +1,5 @@
 """
 base.py – Základní třída pro všechny scrapery.
-Obsahuje:
-  - RSS parsing (společný pro většinu webů)
-  - HTML scraping (záložní metoda)
-  - Deduplikaci přes seen_urls.json
-  - Detekci města
 """
 
 import json
@@ -12,9 +7,8 @@ import os
 import re
 import requests
 from bs4 import BeautifulSoup
-from datetime import datetime, timezone
+from datetime import datetime
 from email.utils import parsedate_to_datetime
-from urllib.parse import urlparse
 
 SEEN_URLS_FILE = os.path.join(os.path.dirname(os.path.dirname(__file__)), "seen_urls.json")
 
@@ -26,26 +20,32 @@ HEADERS = {
     )
 }
 
-OSTRAVA_KEYWORDS = [
-    "ostrava", "ostravsk", "poruba", "vítkovice", "vitkovice", "zábřeh", "zabreh",
-    "hrabová", "hrabova", "hrabůvka", "hrabuvka", "svinov", "mariánské hory", "marianske hory",
-    "slezská ostrava", "slezska ostrava", "přívoz", "privoz", "radvanice", "bartovice",
-    "michálkovice", "michalkovice", "stará bělá", "stara bela", "nová bělá", "nova bela",
-    "kunčice", "kuncice", "kunčičky", "kuncicky", "polanka", "pustkovec", "třebovice", "trebovice",
-    "hošťálkovice", "hostalkovice", "lhotka", "petřkovice", "petrkovice", "proskovice",
-    "krásné pole", "krasne pole", "martinová", "martinova", "martinov", "plesná", "plesna"
+# Kmeny slov pro Ostravu a její obvody (vč. skloňování: Ostravě, Ostravou, Porubě...)
+OSTRAVA_STEMS = [
+    "ostrav", "porub", "vítkovic", "vitkovic", "zábřeh", "zabreh",
+    "hrabov", "hrabův", "hrabuv", "svinov", "mariánské hor", "marianske hor",
+    "slezské ostrav", "slezske ostrav", "slezská ostrav", "slezska ostrav",
+    "přívoz", "privoz", "radvanic", "bartovic", "michálkovic", "michalkovice",
+    "staré běl", "stare bel", "stará běl", "stara bela", "nové běl", "nove bel", "nová běl", "nova bela",
+    "kunčic", "kuncic", "polank", "pustkov", "třebovic", "trebovice",
+    "hošťálkovic", "hostalkovice", "lhotk", "petřkovic", "petrkovice", "proskovic",
+    "krásné pol", "krasne pol", "martinov", "plesn"
 ]
 
-OTHER_CITIES_KEYWORDS = [
-    "karviná", "karvina", "havířov", "havirov", "frýdek", "frydek", "místek", "mistek",
-    "opava", "třinec", "trinec", "bohumín", "bohumin", "orlová", "orlova", "nový jičín", "novy jicin",
-    "krnov", "bruntál", "bruntal", "kopřivnice", "koprivnice", "český těšín", "cesky tesin",
-    "hlučín", "hlucin", "frenštát", "frenstat", "studénka", "studenka", "příbor", "pribor",
-    "bílovec", "bilovec", "rychvald", "petrovice", "václavovice", "vaclavovice", "šenov", "senov",
-    "vratimov", "dětmarovice", "detmarovice", "albrechtice", "stonava", "těrlicko", "terlicko",
-    "horní suchá", "horni sucha", "palkovice", "čeladná", "celadna", "nošovice", "nosovice",
-    "jablunkov", "janovice", "návsí", "navsi", "dobrá", "dobra", "baška", "baska", "paskov",
-    "odry", "fulnek"
+# Kmeny slov pro ostatní města v Moravskoslezském kraji
+OTHER_CITY_STEMS = [
+    "karvin", "havíř", "havir", "frýd", "fryd", "míst", "mist",
+    "opav", "třinec", "trinec", "bohumín", "bohumin", "orlov",
+    "nové jičín", "nove jicin", "nový jičín", "novy jicin", "novojičín", "novojicin",
+    "krnov", "bruntál", "bruntal", "kopřivnic", "koprivnice",
+    "české těšín", "ceske tesin", "český těšín", "cesky tesin",
+    "hlučín", "hlucin", "frenštát", "frenstat", "studénk", "studenk",
+    "příbor", "pribor", "bílovec", "bilovec", "rychvald", "petrovic",
+    "václavovic", "vaclavovice", "šenov", "senov", "vratimov",
+    "dětmarovic", "detmarovice", "albrechtic", "stonav", "těrlick", "terlick",
+    "horní such", "horni such", "palkovic", "čeladn", "celadn", "nošovic", "nosovice",
+    "jablunkov", "janovic", "návsí", "navsi", "dobré", "dobre", "dobrá", "dobra",
+    "bašk", "bask", "paskov", "odry", "fulnek"
 ]
 
 
@@ -63,28 +63,53 @@ def save_seen_urls(seen: set) -> None:
         json.dump(sorted(seen), f, ensure_ascii=False, indent=2)
 
 
-def detect_city(text: str) -> str:
-    """Detekuje zda článek je o Ostravě nebo jiném městě na základě textu/kategorie."""
-    text_lower = text.lower()
-    
-    # 1. Zkontrolovat přítomnost Ostravy / ostravských obvodů
-    has_ostrava = any(kw in text_lower for kw in OSTRAVA_KEYWORDS)
-    # 2. Zkontrolovat přítomnost jiných konkrétních měst v regionu
-    has_other_city = any(kw in text_lower for kw in OTHER_CITIES_KEYWORDS)
-    
-    if has_ostrava and not has_other_city:
-        return "Ostrava"
-    elif has_other_city and not has_ostrava:
+def detect_city(title: str, perex: str = "", category: str = "") -> str:
+    """
+    Chytrá detekce města:
+    1. Titulek má nejvyšší váhu (např. nehoda ve Frýdku-Místku -> Jiné, i když je v textu Ostrava)
+    2. Rubrika/kategorie má druhou nejvyšší váhu
+    3. Perex a zbytek textu
+    """
+    title_lower = (title or "").lower()
+    cat_lower   = (category or "").lower()
+    perex_lower = (perex or "").lower()
+    full_lower  = f"{title_lower} {cat_lower} {perex_lower}"
+
+    title_ostrava = any(s in title_lower for s in OSTRAVA_STEMS)
+    title_other   = any(s in title_lower for s in OTHER_CITY_STEMS)
+
+    cat_ostrava   = any(s in cat_lower for s in OSTRAVA_STEMS)
+    cat_other     = any(s in cat_lower for s in OTHER_CITY_STEMS)
+
+    full_ostrava  = any(s in full_lower for s in OSTRAVA_STEMS)
+    full_other    = any(s in full_lower for s in OTHER_CITY_STEMS)
+
+    # 1. Titulek určuje město s nejvyšší prioritou
+    if title_other and not title_ostrava:
         return "Jiné"
-    elif has_ostrava and has_other_city:
-        # Pokud text obsahuje obojí, zkontrolujeme zda Ostrava je v titulku/kategorii
+    if title_ostrava and not title_other:
         return "Ostrava"
-    
+
+    # 2. Kategorie (pokud titulek neobsahoval konkrétní město)
+    if cat_other and not cat_ostrava:
+        return "Jiné"
+    if cat_ostrava and not cat_other:
+        return "Ostrava"
+
+    # 3. Zbytek textu
+    if full_ostrava and not full_other:
+        return "Ostrava"
+    if full_other and not full_ostrava:
+        return "Jiné"
+
+    # 4. Pokud je zmíněno obojí v textu (např. trasa Ostrava-Opava)
+    if full_ostrava:
+        return "Ostrava"
+
     return "Jiné"
 
 
 def parse_rfc822_date(date_str: str) -> str:
-    """Parsuje RFC 822 datum z RSS (např. Mon, 01 Jan 2024 12:00:00 +0000)."""
     if not date_str:
         return ""
     try:
@@ -95,11 +120,9 @@ def parse_rfc822_date(date_str: str) -> str:
 
 
 def parse_iso_date(date_str: str) -> str:
-    """Parsuje ISO 8601 datum."""
     if not date_str:
         return ""
     try:
-        # Odstranit timezone pro jednodušší parsing
         clean = re.sub(r"[+-]\d{2}:\d{2}$", "", date_str.strip()).replace("Z", "")
         dt = datetime.fromisoformat(clean)
         return dt.strftime("%d.%m.%Y %H:%M")
@@ -108,40 +131,18 @@ def parse_iso_date(date_str: str) -> str:
 
 
 class BaseScraper:
-    """
-    Základní třída pro všechny scrapery.
-    Podtřídy musí implementovat metodu `fetch_articles()`.
-    """
-
-    # Název webu (zobrazí se jako název listu v Excelu)
     name: str = "unknown"
-    # URL zdroje (RSS nebo HTML)
     source_url: str = ""
 
     def fetch_articles(self) -> list[dict]:
-        """
-        Vrátí seznam článků jako list slovníků.
-        Každý slovník musí obsahovat alespoň:
-          - url (str)
-          - title (str)
-          - date (str)  – formát DD.MM.YYYY HH:MM
-          - perex (str)
-          - author (str)
-          - category (str)
-          - scraped_at (str)
-          - city (str)   – 'Ostrava' nebo 'Jiné'
-          - source_name (str)
-        """
         raise NotImplementedError
 
     def get_new_articles(self, seen_urls: set) -> list[dict]:
-        """Vrátí pouze nové články (které nejsou v seen_urls)."""
         all_articles = self.fetch_articles()
         new = [a for a in all_articles if a.get("url") not in seen_urls]
         return new
 
     def _get_soup_html(self, url: str = None) -> BeautifulSoup | None:
-        """Stáhne HTML stránku a vrátí BeautifulSoup objekt."""
         target = url or self.source_url
         try:
             r = requests.get(target, headers=HEADERS, timeout=20)
@@ -153,7 +154,6 @@ class BaseScraper:
             return None
 
     def _get_rss_items(self, url: str = None) -> list:
-        """Stáhne RSS feed a vrátí seznam <item> elementů."""
         target = url or self.source_url
         try:
             r = requests.get(target, headers=HEADERS, timeout=20)
@@ -161,24 +161,19 @@ class BaseScraper:
             soup = BeautifulSoup(r.content, "xml")
             items = soup.find_all("item")
             if not items:
-                items = soup.find_all("entry")  # Atom feed
+                items = soup.find_all("entry")
             return items
         except Exception as e:
             print(f"[{self.name}] Chyba při stahování RSS {target}: {e}")
             return []
 
     def _rss_item_to_dict(self, item, extra_fields: dict = None) -> dict:
-        """
-        Převede <item> z RSS na standardní slovník článku.
-        extra_fields: doplňkové hodnoty specifické pro daný web.
-        """
         title = (item.find("title") or item.find("title")).get_text(strip=True) if item.find("title") else ""
         url = ""
         link_tag = item.find("link")
         if link_tag:
             url = link_tag.get_text(strip=True) or link_tag.get("href", "")
 
-        # Datum – zkusíme různé tagy
         date_str = ""
         for tag in ["pubDate", "published", "updated", "dc:date"]:
             t = item.find(tag)
@@ -186,19 +181,16 @@ class BaseScraper:
                 date_str = t.get_text(strip=True)
                 break
 
-        # Zkusit parsovat datum
         if "+" in date_str or date_str.endswith("Z") or re.search(r"\d{4}-\d{2}-\d{2}T", date_str):
             date_formatted = parse_iso_date(date_str)
         else:
             date_formatted = parse_rfc822_date(date_str)
 
-        # Perex
         perex = ""
         for tag in ["description", "summary", "content:encoded"]:
             t = item.find(tag)
             if t:
                 raw = t.get_text(strip=True)
-                # Odstraníme HTML tagy pokud jsou přítomny
                 raw_soup = BeautifulSoup(raw, "lxml")
                 perex = raw_soup.get_text(strip=True)[:500]
                 break
@@ -215,8 +207,7 @@ class BaseScraper:
         if cats:
             category = ", ".join(c.get_text(strip=True) for c in cats[:3])
 
-        city_text = f"{title} {category} {perex}"
-        city = detect_city(city_text)
+        city = detect_city(title=title, perex=perex, category=category)
 
         article = {
             "url": url,

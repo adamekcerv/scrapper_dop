@@ -122,7 +122,7 @@ class PolarScraper(BaseScraper):
             perex_tag = row.find("p", class_=lambda c: c and "block-truncate" in c)
             perex = perex_tag.get_text(strip=True) if perex_tag else ""
 
-            city = detect_city(f"{title} {perex} {category}")
+            city = detect_city(title=title, perex=perex, category=category)
 
             articles.append({
                 "url": url,
