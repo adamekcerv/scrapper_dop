@@ -144,7 +144,7 @@ def _get_or_create_sheet(wb: Workbook, name: str) -> tuple:
 
 def write_articles_to_excel(new_articles: list[dict], output_path: str = None) -> int:
     """
-    Zapíše nové články do výstupního Excelu.
+    Zapíše nové články na začátek (HODNĚ/NAHOŘE, pod hlavičku) výstupního Excelu.
     Vrátí počet zapsaných článků.
     """
     if not new_articles:
@@ -171,38 +171,41 @@ def write_articles_to_excel(new_articles: list[dict], output_path: str = None) -
     else:
         ws_prehled = wb["PŘEHLED"]
 
-    prehled_start_row = ws_prehled.max_row + 1
+    # Vložit řádky na začátek (pod hlavičku na řádek 2)
+    if not is_new_prehled and ws_prehled.max_row > 1:
+        ws_prehled.insert_rows(2, amount=len(new_articles))
 
-    # ── Zápis článků ────────────────────────────────────────────────────────
-    written = 0
-    for article in new_articles:
-        source  = article.get("source_name", "unknown")
-        title   = article.get("title", "")
-        url     = article.get("url", "")
-        date    = article.get("date", "")
-        city    = article.get("city", "Jiné")
-        author  = article.get("author", "")
-        cat     = article.get("category", "")
-        perex   = article.get("perex", "")
-        scraped = article.get("scraped_at", "")
+    # ── Zápis článků do PŘEHLEDU (od nejnovějšího po nejstarší na řádek 2+) ──
+    for idx, article in enumerate(new_articles):
+        source     = article.get("source_name", "unknown")
+        title      = article.get("title", "")
+        url        = article.get("url", "")
+        date       = article.get("date", "")
+        city       = article.get("city", "Jiné")
+        author     = article.get("author", "")
+        cat        = article.get("category", "")
+        perex      = article.get("perex", "")
+        scraped    = article.get("scraped_at", "")
         is_ostrava = (city == "Ostrava")
 
         # ── Detail list (per web) ──────────────────────────────────────────
-        ws_detail, is_new = _get_or_create_sheet(wb, source)
-        if is_new:
+        ws_detail, is_new_detail = _get_or_create_sheet(wb, source)
+        if is_new_detail:
             _style_header_row(ws_detail, DETAIL_COLUMNS)
+            detail_row = 2
+        else:
+            ws_detail.insert_rows(2, amount=1)
+            detail_row = 2
 
-        detail_row = ws_detail.max_row + 1
         _style_data_row(ws_detail, detail_row, len(DETAIL_COLUMNS), is_ostrava)
-
-        for col_idx, val in enumerate([title, url, date, perex, author, cat, city, scraped], start=1):
-            cell = ws_detail.cell(row=detail_row, column=col_idx, value=val)
-            if col_idx == 2 and url:
+        for col_i, val in enumerate([title, url, date, perex, author, cat, city, scraped], start=1):
+            cell = ws_detail.cell(row=detail_row, column=col_i, value=val)
+            if col_i == 2 and url:
                 cell.hyperlink = url
                 cell.font = Font(name="Calibri", size=9, color=COLOR_ACCENT, underline="single")
 
-        # ── Souhrnný list PŘEHLED ──────────────────────────────────────────
-        prehled_row = prehled_start_row + written
+        # ── Souhrnný list PŘEHLED (řádek 2 + idx) ──────────────────────────
+        prehled_row = 2 + idx
         _style_data_row(ws_prehled, prehled_row, NUM_PREHLED_COLS, is_ostrava)
 
         # Sloupec A = ☐ (nezpracováno)
@@ -211,27 +214,20 @@ def write_articles_to_excel(new_articles: list[dict], output_path: str = None) -
         cb_cell.font = Font(name="Segoe UI Symbol", size=12, bold=False)
 
         prehled_data = [source, title, url, date, city, scraped, author, cat]
-        for col_idx, val in enumerate(prehled_data, start=2):
-            cell = ws_prehled.cell(row=prehled_row, column=col_idx, value=val)
-            if col_idx == 4 and url:   # sloupec D = URL
+        for col_i, val in enumerate(prehled_data, start=2):
+            cell = ws_prehled.cell(row=prehled_row, column=col_i, value=val)
+            if col_i == 4 and url:   # sloupec D = URL
                 cell.hyperlink = url
                 cell.font = Font(name="Calibri", size=9, color=COLOR_ACCENT, underline="single")
 
-        written += 1
-
     # ── Checkbox dropdown + podmíněné formátování ────────────────────────────
-    if is_new_prehled:
-        # Přidat validaci a CF jen jednou při vytvoření listu
-        _add_checkbox_column(ws_prehled, data_start_row=2, max_rows=5000)
-    elif written > 0:
-        # Pro existující list: CF pravidlo je globální, stačí znovu nastavit rozsah
-        _add_checkbox_column(ws_prehled, data_start_row=2, max_rows=5000)
+    _add_checkbox_column(ws_prehled, data_start_row=2, max_rows=5000)
 
     # PŘEHLED vždy jako první list
     if "PŘEHLED" in wb.sheetnames:
-        idx = wb.sheetnames.index("PŘEHLED")
-        if idx != 0:
-            wb.move_sheet("PŘEHLED", offset=-idx)
+        p_idx = wb.sheetnames.index("PŘEHLED")
+        if p_idx != 0:
+            wb.move_sheet("PŘEHLED", offset=-p_idx)
 
     wb.save(path)
-    return written
+    return len(new_articles)
