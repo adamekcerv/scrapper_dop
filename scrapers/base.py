@@ -50,10 +50,15 @@ OTHER_CITY_STEMS = [
 
 
 def load_seen_urls() -> set:
-    """Načte již zpracované URL ze souboru."""
+    """Načte již zpracované URL ze souboru (odolné vůči poškození)."""
     if os.path.exists(SEEN_URLS_FILE):
-        with open(SEEN_URLS_FILE, "r", encoding="utf-8") as f:
-            return set(json.load(f))
+        try:
+            with open(SEEN_URLS_FILE, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                if isinstance(data, list):
+                    return set(data)
+        except Exception as e:
+            print(f"  [WARN] Nelze načíst seen_urls.json ({e}) – začínám s prázdnou databází.")
     return set()
 
 
