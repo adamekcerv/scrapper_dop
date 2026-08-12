@@ -2,8 +2,8 @@ name: Web Scrapper – denní spuštění
 
 on:
   schedule:
-    # Každý den v 6:00 UTC = 8:00 Prague (letní čas) / 7:00 Prague (zimní čas)
-    - cron: "0 6 * * *"
+    # Každý den v 5:30 UTC = 7:30 Prague (letní čas) – poběží s předstihem před 8:00
+    - cron: "30 5 * * *"
   workflow_dispatch:
     # Možnost spustit ručně z GitHub webu (tlačítko "Run workflow")
 
