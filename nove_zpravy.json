@@ -1,22 +1,372 @@
 [
   {
     "Web": "polar.cz",
-    "Titulek": "Pozdě příchozí / divadelní představení",
-    "URL": "https://polar.cz/kam-vyrazit/moravskoslezsky-kraj/cely-ms-kraj/11000017178/pozde-prichozi--divadelni-predstaveni",
-    "Datum": "",
-    "Mesto": "Jiné",
-    "ScrapedAt": "11.08.2026 12:15",
-    "Autor": "",
-    "Kategorie": ""
+    "Titulek": "Přístavba slezskoostravské radnice jde do další fáze",
+    "URL": "https://polar.cz/zpravy/ostrava/slezska-ostrava/11000056222/pristavba-slezskoostravske-radnice-jde-do-dalsi-faze",
+    "Datum": "11.08.2026 17:51",
+    "Mesto": "Ostrava",
+    "ScrapedAt": "12.08.2026 07:06",
+    "Autor": "Anna Břenková",
+    "Kategorie": "Ostrava-Slezská Ostrava"
   },
   {
     "Web": "polar.cz",
-    "Titulek": "Pracovníci přímé obslužné péče v oblasti ambulantních a terénních služeb a pečovatelé v oblasti domácí péče",
-    "URL": "https://polar.cz/nabidka-prace/ostrava/detail/32864740721/pracovnici-prime-obsluzne-pece-v-oblasti-ambulantnich-a-terennich-sluzeb-a-pecovatele-v-oblasti-domaci-pece",
-    "Datum": "",
+    "Titulek": "Zchátralé domy v Šenovské ulici se mění na nové byty. Problémy se statikou stavbu prodloužily",
+    "URL": "https://polar.cz/zpravy/ostrava/slezska-ostrava/11000056223/zchatrale-domy-v-senovske-ulici-se-meni-na-nove-byty-problemy-se-statikou-stavbu-prodlouzily",
+    "Datum": "11.08.2026 15:57",
     "Mesto": "Jiné",
-    "ScrapedAt": "11.08.2026 12:15",
+    "ScrapedAt": "12.08.2026 07:06",
+    "Autor": "Anna Břenková",
+    "Kategorie": "Ostrava-Slezská Ostrava"
+  },
+  {
+    "Web": "zdopravy.cz",
+    "Titulek": "Okružní křižovatka na hranici dvou měst nestačí náporu směn ve Škodě. ŘSD chystá proměnu na světelnou",
+    "URL": "https://zdopravy.cz/okruzni-krizovatka-na-hranici-dvou-mest-nestaci-naporu-smen-ve-skode-rsd-chysta-promenu-na-svetelnou-293793/",
+    "Datum": "Wed, 12 Aug 2026 06:30:52 +0000",
+    "Mesto": "Jiné",
+    "ScrapedAt": "12.08.2026 07:06",
+    "Autor": "Jan Sůra",
+    "Kategorie": "Město, Silnice, I/38"
+  },
+  {
+    "Web": "zdopravy.cz",
+    "Titulek": "Úřad řeší povolení pro další část D55. Práce omezí i železniční koridor, dálnice ho podjede",
+    "URL": "https://zdopravy.cz/urad-resi-povoleni-pro-dalsi-cast-d55-prace-omezi-i-zeleznicni-koridor-dalnice-ho-podjede-293791/",
+    "Datum": "Wed, 12 Aug 2026 05:00:22 +0000",
+    "Mesto": "Jiné",
+    "ScrapedAt": "12.08.2026 07:06",
+    "Autor": "Jan Sůra",
+    "Kategorie": "Silnice, D55, D55 Napajedla -Babice"
+  },
+  {
+    "Web": "zdopravy.cz",
+    "Titulek": "SŽ odkládá modernizaci a elektrizaci tratí do Frenštátu a na Ostravici. Práce odsunula o několik let",
+    "URL": "https://zdopravy.cz/sz-odklada-modernizaci-a-elektrizaci-trati-do-frenstatu-a-na-ostravici-prace-odsunula-o-nekolik-let-291974/",
+    "Datum": "Wed, 12 Aug 2026 03:00:23 +0000",
+    "Mesto": "Jiné",
+    "ScrapedAt": "12.08.2026 07:06",
+    "Autor": "Vojtěch Očadlý",
+    "Kategorie": "Železnice, elektrizace Frýdek-Místek - Frenštát pod Radhoštěm, elektrizace tratí"
+  },
+  {
+    "Web": "zdopravy.cz",
+    "Titulek": "Přestavba Smíchovského nádraží je v další fázi. Vlaky čeká omezení, město pokročilo v přípravě terminálu",
+    "URL": "https://zdopravy.cz/prestavba-smichovskeho-nadrazi-je-v-dalsi-fazi-vlaky-ceka-omezeni-mesto-pokrocilo-v-priprave-terminalu-293761/",
+    "Datum": "Tue, 11 Aug 2026 18:30:15 +0000",
+    "Mesto": "Jiné",
+    "ScrapedAt": "12.08.2026 07:06",
+    "Autor": "Jan Nevyhoštěný",
+    "Kategorie": "Železnice, České dráhy, dopravní terminál Smíchov"
+  },
+  {
+    "Web": "zdopravy.cz",
+    "Titulek": "Miliardová proměna vozovny. V Brně roste nová trolejbusová hala",
+    "URL": "https://zdopravy.cz/miliardova-promena-vozovny-v-brne-roste-nova-trolejbusova-hala-293759/",
+    "Datum": "Tue, 11 Aug 2026 17:30:31 +0000",
+    "Mesto": "Jiné",
+    "ScrapedAt": "12.08.2026 07:06",
+    "Autor": "Jan Sůra",
+    "Kategorie": "Autobusy, Město, Trolejbusy"
+  },
+  {
+    "Web": "zdopravy.cz",
+    "Titulek": "Stadler má další zakázku na EuroDualy. Zamíří i na Balkán",
+    "URL": "https://zdopravy.cz/stadler-ma-dalsi-zakazku-na-eurodualy-zamiri-i-na-balkan-291922/",
+    "Datum": "Tue, 11 Aug 2026 16:30:53 +0000",
+    "Mesto": "Jiné",
+    "ScrapedAt": "12.08.2026 07:06",
+    "Autor": "Jan Sůra",
+    "Kategorie": "Dopravci, Železnice, Železniční průmysl"
+  },
+  {
+    "Web": "zdopravy.cz",
+    "Titulek": "Úleva pro velká pražská sídliště. Na Ruzyni v pátek zprovozní hlavní ranvej",
+    "URL": "https://zdopravy.cz/uleva-pro-velka-prazska-sidliste-na-ruzyni-v-patek-zprovozni-hlavni-ranvej-293739/",
+    "Datum": "Tue, 11 Aug 2026 15:15:11 +0000",
+    "Mesto": "Jiné",
+    "ScrapedAt": "12.08.2026 07:06",
+    "Autor": "Vojtěch Očadlý",
+    "Kategorie": "Letectví, Letiště, 06/24"
+  },
+  {
+    "Web": "zdopravy.cz",
+    "Titulek": "Všichni by tu umřeli. Cvičení v německém tunelu pro rychlovlaky skončilo fiaskem, hasiči nehodu hlásili faxy",
+    "URL": "https://zdopravy.cz/vsichni-by-tu-umreli-cviceni-v-nemeckem-tunelu-pro-rychlovlaky-skoncilo-fiaskem-hasici-nehodu-hlasili-faxy-293751/",
+    "Datum": "Tue, 11 Aug 2026 14:00:22 +0000",
+    "Mesto": "Jiné",
+    "ScrapedAt": "12.08.2026 07:06",
+    "Autor": "Jan Sůra",
+    "Kategorie": "Mimořádné události, Železnice, Deutsche Bahn"
+  },
+  {
+    "Web": "zdopravy.cz",
+    "Titulek": "190denní oprava D5 může začít. Výměna olámaných betonových panelů vyjde na 668 milionů",
+    "URL": "https://zdopravy.cz/190denni-oprava-d5-muze-zacit-vymena-olamanych-betonovych-panelu-vyjde-na-668-milionu-291987/",
+    "Datum": "Tue, 11 Aug 2026 12:45:21 +0000",
+    "Mesto": "Jiné",
+    "ScrapedAt": "12.08.2026 07:06",
+    "Autor": "Jan Nevyhoštěný",
+    "Kategorie": "Silnice, D5, D5 Sulkov - Nýřany"
+  },
+  {
+    "Web": "denik.cz",
+    "Titulek": "Kvůli nedělnímu fotbalu posílí Dopravní podnik Ostrava tramvajové spojení",
+    "URL": "https://moravskoslezsky.denik.cz/zpravy-region/kvuli-nedelnimu-fotbalu-posili-dopravni-podnik-ostrava-tramvajove-spojeni/?utm_source=rss&utm_medium=feed-vse&utm_campaign=moravskoslezsky.denik.cz&utm_content=zpravy-region",
+    "Datum": "Wed, 12 Aug 2026 08:47:37 +0200",
+    "Mesto": "Ostrava",
+    "ScrapedAt": "12.08.2026 07:07",
     "Autor": "",
+    "Kategorie": "Ostravsko"
+  },
+  {
+    "Web": "denik.cz",
+    "Titulek": "Nejen procházky a sledování zvířat. V Zoo Ostrava probíhá příměstský tábor",
+    "URL": "https://moravskoslezsky.denik.cz/zpravy-region/nejen-prochazky-a-sledovani-zvirat-v-zoo-ostrava-probiha-primestsky-tabor/?utm_source=rss&utm_medium=feed-vse&utm_campaign=moravskoslezsky.denik.cz&utm_content=zpravy-region",
+    "Datum": "Wed, 12 Aug 2026 08:38:00 +0200",
+    "Mesto": "Ostrava",
+    "ScrapedAt": "12.08.2026 07:07",
+    "Autor": "",
+    "Kategorie": "Ostravsko"
+  },
+  {
+    "Web": "denik.cz",
+    "Titulek": "ČT představila podzimní program: Uvede Gertu Schnirch, Hec i Docenta 3",
+    "URL": "https://www.denik.cz/kultura/ceska-televize-podzim-program-novinky/?utm_source=rss&utm_medium=feed-vse&utm_campaign=moravskoslezsky.denik.cz&utm_content=kultura",
+    "Datum": "Wed, 12 Aug 2026 07:30:00 +0200",
+    "Mesto": "Jiné",
+    "ScrapedAt": "12.08.2026 07:07",
+    "Autor": "",
+    "Kategorie": "Kultura"
+  },
+  {
+    "Web": "denik.cz",
+    "Titulek": "Vašek o Jedličkovi: Couvá, potřebuje jeden zákrok. Skuhravý v Baníku? Věřte mu",
+    "URL": "https://moravskoslezsky.denik.cz/fotbal-prvni-liga/petr-vasek-martin-jedlicka-brankar-banik-ostrava-roman-skuhravy-trener/?utm_source=rss&utm_medium=feed-vse&utm_campaign=moravskoslezsky.denik.cz&utm_content=fotbal-prvni-liga",
+    "Datum": "Wed, 12 Aug 2026 07:00:00 +0200",
+    "Mesto": "Ostrava",
+    "ScrapedAt": "12.08.2026 07:07",
+    "Autor": "",
+    "Kategorie": "Chance Liga"
+  },
+  {
+    "Web": "denik.cz",
+    "Titulek": "Unikátní data: Kde v ČR se nejvíc platí za sex. Jak staří Češi koukají na porno",
+    "URL": "https://www.denik.cz/cesko/jak-miluji-cesi-porno-vek-prostituce-kraje/?utm_source=rss&utm_medium=feed-vse&utm_campaign=moravskoslezsky.denik.cz&utm_content=cesko",
+    "Datum": "Wed, 12 Aug 2026 07:00:00 +0200",
+    "Mesto": "Jiné",
+    "ScrapedAt": "12.08.2026 07:07",
+    "Autor": "",
+    "Kategorie": "Česko"
+  },
+  {
+    "Web": "denik.cz",
+    "Titulek": "Domovy Baníku: Vítkovický azyl a touha po návratu domů na Slezskou",
+    "URL": "https://moravskoslezsky.denik.cz/zpravy-region/domovy-baniku-vitkovicky-azyl-a-touha-po-navratu-domu-na-slezskou/?utm_source=rss&utm_medium=feed-vse&utm_campaign=moravskoslezsky.denik.cz&utm_content=zpravy-region",
+    "Datum": "Wed, 12 Aug 2026 06:59:00 +0200",
+    "Mesto": "Ostrava",
+    "ScrapedAt": "12.08.2026 07:07",
+    "Autor": "",
+    "Kategorie": "Ostravsko"
+  },
+  {
+    "Web": "denik.cz",
+    "Titulek": "Manželství bych povolila až po třicítce. Samo by pak zaniklo, říká Vlášková",
+    "URL": "https://www.denik.cz/cesko/manzelstvi-bych-povolila-az-po-tricitce-samo-by-pak-zaniklo-rika-vlaskova/?utm_source=rss&utm_medium=feed-vse&utm_campaign=moravskoslezsky.denik.cz&utm_content=cesko",
+    "Datum": "Wed, 12 Aug 2026 06:05:00 +0200",
+    "Mesto": "Jiné",
+    "ScrapedAt": "12.08.2026 07:07",
+    "Autor": "",
+    "Kategorie": "Česko"
+  },
+  {
+    "Web": "denik.cz",
+    "Titulek": "Oprava „mrakodrapu“ v Ostravě začala. Vznikne zde 111 bytů za miliony",
+    "URL": "https://moravskoslezsky.denik.cz/zpravy-region/oprava-mrakodrapu-v-ostrave-zacala-vznikne-zde-111-bytu-za-miliony/?utm_source=rss&utm_medium=feed-vse&utm_campaign=moravskoslezsky.denik.cz&utm_content=zpravy-region",
+    "Datum": "Wed, 12 Aug 2026 05:00:00 +0200",
+    "Mesto": "Ostrava",
+    "ScrapedAt": "12.08.2026 07:07",
+    "Autor": "",
+    "Kategorie": "Ostravsko"
+  },
+  {
+    "Web": "denik.cz",
+    "Titulek": "Chudší rodiny řeší, jak zaplatit školní pomůcky. Ty by přitom měly být zdarma",
+    "URL": "https://www.denik.cz/skolstvi-a-vzdelavani/skolstvi-skolni-pomucky-by-mely-byt-zdarma-cesko/?utm_source=rss&utm_medium=feed-vse&utm_campaign=moravskoslezsky.denik.cz&utm_content=skolstvi-a-vzdelavani",
+    "Datum": "Wed, 12 Aug 2026 04:00:00 +0200",
+    "Mesto": "Jiné",
+    "ScrapedAt": "12.08.2026 07:07",
+    "Autor": "",
+    "Kategorie": "Školství"
+  },
+  {
+    "Web": "denik.cz",
+    "Titulek": "Brankář Švančara se ve Vítkovicích uvedl solidně. Masku ladí",
+    "URL": "https://moravskoslezsky.denik.cz/hokej/brankar-svancara-se-ve-vitkovicich-uvedl-solidne-masku-ladi/?utm_source=rss&utm_medium=feed-vse&utm_campaign=moravskoslezsky.denik.cz&utm_content=hokej",
+    "Datum": "Tue, 11 Aug 2026 20:50:57 +0200",
+    "Mesto": "Ostrava",
+    "ScrapedAt": "12.08.2026 07:07",
+    "Autor": "",
+    "Kategorie": "Hokej"
+  },
+  {
+    "Web": "denik.cz",
+    "Titulek": "Trenér Treille začal s Vítkovicemi prohrou v Olomouci",
+    "URL": "https://moravskoslezsky.denik.cz/hokej/trener-treille-zacal-s-vitkovicemi-prohrou-v-olomouci/?utm_source=rss&utm_medium=feed-vse&utm_campaign=moravskoslezsky.denik.cz&utm_content=hokej",
+    "Datum": "Tue, 11 Aug 2026 20:06:04 +0200",
+    "Mesto": "Ostrava",
+    "ScrapedAt": "12.08.2026 07:07",
+    "Autor": "",
+    "Kategorie": "Hokej"
+  },
+  {
+    "Web": "denik.cz",
+    "Titulek": "Ostrava chystá festival o praktickém využití AI, vystoupí stovka řečníků",
+    "URL": "https://moravskoslezsky.denik.cz/zpravy-region/ostrava-chysta-festival-o-praktickem-vyuziti-ai-vystoupi-stovka-recniku/?utm_source=rss&utm_medium=feed-vse&utm_campaign=moravskoslezsky.denik.cz&utm_content=zpravy-region",
+    "Datum": "Tue, 11 Aug 2026 17:22:54 +0200",
+    "Mesto": "Ostrava",
+    "ScrapedAt": "12.08.2026 07:07",
+    "Autor": "",
+    "Kategorie": "Ostravsko"
+  },
+  {
+    "Web": "denik.cz",
+    "Titulek": "Chceme zpět své peníze. Důchodci zahlcují zákaznické linky penzijních fondů",
+    "URL": "https://www.denik.cz/ekonomika/cesko-ekonomika-seniori-zahlcuji-link-penzijnich-fondu-chteji-zpet-penize/?utm_source=rss&utm_medium=feed-vse&utm_campaign=moravskoslezsky.denik.cz&utm_content=ekonomika",
+    "Datum": "Tue, 11 Aug 2026 16:30:00 +0200",
+    "Mesto": "Jiné",
+    "ScrapedAt": "12.08.2026 07:07",
+    "Autor": "",
+    "Kategorie": "Ekonomika"
+  },
+  {
+    "Web": "denik.cz",
+    "Titulek": "Jiřičná navštívila stavbu nové scény NDM, po demolicích začne vznikat přístavba",
+    "URL": "https://moravskoslezsky.denik.cz/zpravy-region/jiricna-navstivila-stavbu-nove-sceny-ndm-po-demolicich-zacne-vznikat-pristavba/?utm_source=rss&utm_medium=feed-vse&utm_campaign=moravskoslezsky.denik.cz&utm_content=zpravy-region",
+    "Datum": "Tue, 11 Aug 2026 16:00:00 +0200",
+    "Mesto": "Ostrava",
+    "ScrapedAt": "12.08.2026 07:07",
+    "Autor": "",
+    "Kategorie": "Ostravsko"
+  },
+  {
+    "Web": "denik.cz",
+    "Titulek": "Změní se kvůli vedru letní prázdniny? Má to rizika, klimatizace se ale prodraží",
+    "URL": "https://www.denik.cz/skolstvi-a-vzdelavani/cesko-skolstvi-zmena-letni-prazdniny-ministr-robert-plaga-vedro-pocasi/?utm_source=rss&utm_medium=feed-vse&utm_campaign=moravskoslezsky.denik.cz&utm_content=skolstvi-a-vzdelavani",
+    "Datum": "Tue, 11 Aug 2026 15:48:32 +0200",
+    "Mesto": "Jiné",
+    "ScrapedAt": "12.08.2026 07:07",
+    "Autor": "",
+    "Kategorie": "Školství"
+  },
+  {
+    "Web": "denik.cz",
+    "Titulek": "Bývalý parkovací dům ve Svinově ožívá. Funguje zde posilovna, v plánu je i hotel",
+    "URL": "https://moravskoslezsky.denik.cz/zpravy-region/byvaly-parkovaci-dum-ve-svinove-oziva-funguje-zde-posilovna-v-planu-je-i-hotel/?utm_source=rss&utm_medium=feed-vse&utm_campaign=moravskoslezsky.denik.cz&utm_content=zpravy-region",
+    "Datum": "Tue, 11 Aug 2026 15:13:31 +0200",
+    "Mesto": "Ostrava",
+    "ScrapedAt": "12.08.2026 07:07",
+    "Autor": "",
+    "Kategorie": "Ostravsko"
+  },
+  {
+    "Web": "msstavby.cz",
+    "Titulek": "Rekonstrukce autobusového nádraží v Třinci",
+    "URL": "https://www.msstavby.cz/rekonstrukce-autobusoveho-nadrazi-v-trinci-2-12-08-2026/",
+    "Datum": "Wed, 12 Aug 2026 03:30:00 +0000",
+    "Mesto": "Jiné",
+    "ScrapedAt": "12.08.2026 07:07",
+    "Autor": "Martin [msstavby.cz]",
+    "Kategorie": "ostatní, třinec"
+  },
+  {
+    "Web": "msstavby.cz",
+    "Titulek": "Opava, jižní obchvat, Hradecká-Olomoucká",
+    "URL": "https://www.msstavby.cz/opava-jizni-obchvat-hradecka-olomoucka-15-11-08-2026/",
+    "Datum": "Tue, 11 Aug 2026 16:30:00 +0000",
+    "Mesto": "Jiné",
+    "ScrapedAt": "12.08.2026 07:07",
+    "Autor": "Martin [msstavby.cz]",
+    "Kategorie": "OSTRAVA"
+  },
+  {
+    "Web": "msstavby.cz",
+    "Titulek": "Frýdek-Místek představil vizualizace budoucí podoby dopravního terminálu",
+    "URL": "https://www.msstavby.cz/frydek-mistek-predstavil-vizualizace-budouci-podoby-dopravniho-terminalu-11-08-2026/",
+    "Datum": "Tue, 11 Aug 2026 12:30:00 +0000",
+    "Mesto": "Jiné",
+    "ScrapedAt": "12.08.2026 07:07",
+    "Autor": "Martin [msstavby.cz]",
+    "Kategorie": "FRÝDEK-MÍSTEK"
+  },
+  {
+    "Web": "idnes.cz",
+    "Titulek": "Ochránci mapovali vlky v Beskydech. Populace je stabilní, na dobytek útočí méně",
+    "URL": "https://www.idnes.cz/ostrava/zpravy/selmy-beskydy-scitani-vlk-rys-medved-chovatele-dobytka.A260812_959559_ostrava-zpravy_dmk#utm_source=rss&utm_medium=feed&utm_campaign=ostrava&utm_content=main",
+    "Datum": "12.08.2026 06:38",
+    "Mesto": "Ostrava",
+    "ScrapedAt": "12.08.2026 07:07",
+    "Autor": "",
+    "Kategorie": "Ostrava - Ostrava - zprávy"
+  },
+  {
+    "Web": "idnes.cz",
+    "Titulek": "Města stojí černé skládky miliony. Viníky odhalují kamery i strážníci",
+    "URL": "https://www.idnes.cz/ostrava/zpravy/skladky-strazci-moravskoslezske-odpad-odhaleni-kamery.A260811_959207_ostrava-zpravy_jog#utm_source=rss&utm_medium=feed&utm_campaign=ostrava&utm_content=main",
+    "Datum": "12.08.2026 04:30",
+    "Mesto": "Ostrava",
+    "ScrapedAt": "12.08.2026 07:07",
+    "Autor": "",
+    "Kategorie": "Ostrava - Ostrava - zprávy"
+  },
+  {
+    "Web": "idnes.cz",
+    "Titulek": "Konec strašidelného domu. Architektka Jiřičná zahájila proměnu mrakodrapu v Ostravě",
+    "URL": "https://www.idnes.cz/ostrava/zpravy/mrakodrap-ostrava-jiricna-zahajeni-prestavba-byty-naklady.A260811_173454_ostrava-zpravy_jog#utm_source=rss&utm_medium=feed&utm_campaign=ostrava&utm_content=main",
+    "Datum": "11.08.2026 16:17",
+    "Mesto": "Ostrava",
+    "ScrapedAt": "12.08.2026 07:07",
+    "Autor": "",
+    "Kategorie": "Ostrava - Ostrava - zprávy"
+  },
+  {
+    "Web": "patriotmagazin.cz",
+    "Titulek": "Ostravu čeká módní událost roku. SA|KO STUDIO chystá v Trojhalí další velkolepou show",
+    "URL": "https://www.patriotmagazin.cz/ostravu-ceka-modni-udalost-roku-sa-ko-studio-chysta-v-trojhali-dalsi-velkolepou-show",
+    "Datum": "Wed, 12 Aug 2026 08:50:00 +0200",
+    "Mesto": "Ostrava",
+    "ScrapedAt": "12.08.2026 07:07",
+    "Autor": "Petr Sobol",
+    "Kategorie": ""
+  },
+  {
+    "Web": "patriotmagazin.cz",
+    "Titulek": "Moravskoslezský kraj otevírá další chráněné bydlení, tentokrát v Ostravě",
+    "URL": "https://www.patriotmagazin.cz/moravskoslezsky-kraj-otevira-dalsi-chranene-bydleni-tentokrat-v-ostrave",
+    "Datum": "Wed, 12 Aug 2026 08:50:00 +0200",
+    "Mesto": "Ostrava",
+    "ScrapedAt": "12.08.2026 07:07",
+    "Autor": "Petr Sobol",
+    "Kategorie": ""
+  },
+  {
+    "Web": "patriotmagazin.cz",
+    "Titulek": "Bydlení v oblacích. Chátrající ostravský mrakodrap se mění v luxusní rezidenci",
+    "URL": "https://www.patriotmagazin.cz/bydleni-v-oblacich-chatrajici-ostravsky-mrakodrap-se-meni-v-luxusni-rezidenci",
+    "Datum": "Wed, 12 Aug 2026 08:50:00 +0200",
+    "Mesto": "Ostrava",
+    "ScrapedAt": "12.08.2026 07:07",
+    "Autor": "Petr Sobol",
+    "Kategorie": ""
+  },
+  {
+    "Web": "patriotmagazin.cz",
+    "Titulek": "Největší letní překvapení? To letos najdete v Bílovci",
+    "URL": "https://www.patriotmagazin.cz/nejvetsi-letni-prekvapeni-to-letos-najdete-v-bilovci",
+    "Datum": "Tue, 11 Aug 2026 17:10:00 +0200",
+    "Mesto": "Jiné",
+    "ScrapedAt": "12.08.2026 07:07",
+    "Autor": "Petr Sobol",
     "Kategorie": ""
   }
 ]
